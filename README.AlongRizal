@@ -1,0 +1,94 @@
+# README.AlongRizal
+ INSTALL                 | 2 +-
+ README.AlongRizal       | 4 ++--
+ TESTING                 | 2 +-
+ doc/i18n.txt            | 2 +-
+ web/lib/version.inc.php | 1 +
+ web/template/footer.php | 2 +-
+ 6 files changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/INSTALL b/INSTALL
+index 7087aca2..1db69a9c 100644
+--- a/INSTALL
++++ b/INSTALL
+@@ -12,7 +12,7 @@ read the instructions below.
+ 1) Clone the aurweb project:
+ 
+    $ cd /srv/http/
+-   $ git clone git://git.archlinux.org/aurweb.git
++   $ git clone https://gitlab.archlinux.org/archlinux/aurweb.git
+ 
+ 2) Setup a web server with PHP and MySQL. Configure the web server to redirect
+    all URLs to /index.php/foo/bar/. The following block can be used with nginx:
+diff --git a/README.AlongRizal b/README.AlongRizsl
+index f7285a51..3105889a 100644
+--- a/README.AlongRizal
++++ b/README.AlongRizal
+@@ -29,8 +29,8 @@ Directory Layout
+ Links
+ -----
+ 
+-* The repository is hosted at git://git.archlinux.org/aurweb.git -- see
+-  doc/CodingGuidelines for information on the patch submission process.
++* The repository is hosted at 
+<https://gitlab.archlinux.org/archlinux/aurweb.git>.
++  See doc/CodingGuidelines for information on the patch submission process.
+ 
+ * Bugs can (and should) be submitted to the aurweb bug tracker:
+   https://bugs.archlinux.org/index.php?project=2
+diff --git a/TESTING b/TESTING
+index d7df3672..9a211877 100644
+--- a/TESTING
++++ b/TESTING
+@@ -7,7 +7,7 @@ INSTALL.
+ 
+ 1) Clone the aurweb project:
+ 
+-    $ git clone git://git.archlinux.org/aurweb.git
++    $ git clone https://gitlab.archlinux.org/archlinux/aurweb.git
+ 
+ 2) Install the necessary packages:
+ 
+diff --git a/doc/i18n.txt b/doc/i18n.txt
+index 8216c084..44fb0f1f 100644
+--- a/doc/i18n.txt
++++ b/doc/i18n.txt
+@@ -21,7 +21,7 @@ strings for the translation to be usable, and it may have to 
+be disabled.
+ 
+ 1. Check out the aurweb source using git:
+ 
+-$ git clone git://git.archlinux.org/aurweb.git aurweb-git
++$ git clone https://gitlab.archlinux.org/archlinux/aurweb.git aurweb-git
+ 
+ 2. Go into the "po/" directory in the aurweb source and run msginit(1) to
+    create a initial translation file from our translation catalog:
+diff --git a/web/lib/version.inc.php b/web/lib/version.inc.php
+index 27eef718..d96ce590 100644
+--- a/web/lib/version.inc.php
++++ b/web/lib/version.inc.php
+@@ -1,3 +1,4 @@
+ <?php
++// The HTML footer expects AURWEB_VERSION to refer to a Git tag.
+ define("AURWEB_VERSION", "v5.0.0");
+ 
+diff --git a/web/template/footer.php b/web/template/footer.php
+index 572dbb26..59a97642 100644
+--- a/web/template/footer.php
++++ b/web/template/footer.php
+@@ -3,7 +3,7 @@
+ 
+                        <div id="footer">
+                                <?php if ($ver): ?>
+-                               <p>aurweb <a 
+href="https://git.archlinux.org/aurweb.git/log/?h=<?= htmlspecialchars($ver, 
+ENT_QUOTES) ?>"><?= htmlspecialchars($ver) ?></a></p>
++                               <p>aurweb <a 
+href="https://gitlab.archlinux.org/archlinux/aurweb/-/tags/<?= 
+htmlspecialchars($ver, ENT_QUOTES) ?>"><?= htmlspecialchars($ver) ?></a></p>
+                                <?php endif; ?>
+                                <p><?= __('Copyright %s 2004-%d aurweb 
+Development Team.', '&copy;', date('Y')) ?></p>
+                                <p><?= __('AUR packages are user produced 
+content. Any use of the provided files is at your own risk.') ?></p>
+-- 
